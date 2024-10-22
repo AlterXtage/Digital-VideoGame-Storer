@@ -1,0 +1,198 @@
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(150deg, #1965F3  , #FA1E17);
+    margin: 0;
+    padding: 0;
+}
+
+h1{
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    margin: 30px 0px;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: purple;
+    color: white;
+    padding: 10px 20px;
+}
+
+.logoA img {
+    height: 80px;
+    margin-left: 50px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+}
+
+.search-bar input {
+    padding: 5px;
+    border-radius: 20px;
+}
+
+.search-bar button {
+    padding: 5px;
+    cursor: pointer;
+    margin-left: 10px;
+    border-radius: 20px;
+}
+
+.user-cart {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.user-cart a {
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.game-library {
+    position: relative;
+
+    padding: 42px;
+    text-align: center;
+}
+
+.button {
+    display: flexbox;
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.biblioteca { background-color: #ce0548bd; }
+.biblioteca:hover { background-color: #45a049; }
+.descargas { background-color: #ce0548bd; }
+.descargas:hover { background-color: #45a049; }
+.salir { background-color: #ce0548bd; }
+.salir:hover { background-color: #45a049; }
+.quick-start {
+    background-color: #181449;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 20px 0;
+}
+.quick-start h1 {
+    color: #ffffff;
+    margin-top: 0;
+    font-size: 16px;
+    display: block;
+}
+.game-placeholder {
+    
+    height: 50px;
+    margin: 10px 0;
+    border-radius: 5px;
+}
+.footer {
+    position:relative;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: purple;
+    color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.footer-item {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+}
+.footer-item i {
+    margin-right: 10px;
+    font-size: 20px; /* Aumenta el tamaño del icono */
+}
+/* Asegúrate de que los iconos sean blancos */
+.fas {
+    color: white;
+}
+
+.contenedor{
+    position: relative;
+ 
+    padding: 10px;
+    margin-left: auto;
+    display: flex;
+    justify-content: space-between;
+    /* oculto lo que queda fuera del .contenedor */
+    contain: paint;
+    
+}
+/* SECCION CONTENEDOR DE ITEMS */
+.contenedor .contenedor-items{
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-gap:30px;
+    grid-row-gap: 30px;
+    /* width: 60%; */
+    width: 100%;
+    transition: .3s;
+}
+.contenedor .contenedor-items .item{
+    max-width: 150px;
+    margin: auto;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 15px;
+    transition: .3s;
+}
+.contenedor .contenedor-items .item .img-item{
+    width: 100%;
+}
+.contenedor .contenedor-items .item:hover{
+    box-shadow: 0 0 10px black;
+    scale: 1.05;
+}
+.contenedor .contenedor-items .item .titulo-item{
+    display: block;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+}
+.contenedor .contenedor-items .item .precio-item{
+    display: block;
+    text-align: center;
+    font-weight: bold;
+    font-size: 22px;
+}
+
+.contenedor .contenedor-items .item .boton-item{
+    display: block;
+    margin: 10px auto;
+    border: none;
+    background-color: black;
+    background: linear-gradient(150deg, #1965F3  , #FA1E17);
+    padding: 5px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
