@@ -56,16 +56,26 @@ aside{
 }
 
 .boton-menu.active{
-    
-    color: purple;
-    width: 100%;
+    background-color: purple;
+    color: white;
+    width: 85%;
     border-top-left-radius: 1rem;
     border-bottom-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
 }
 
-.boton-carrito{
-    margin-bottom: 1rem;
+.boton-carrito.active{
+    background-color: transparent;
+    color: white;
+    width: 85%;
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
 }
+
+
 
 .numerito{
     background-color: white;
@@ -80,8 +90,21 @@ aside{
 }
 
 .texto-footer{
-    color: black;
+    color: white;
     font-size: .85rem;
+}
+
+.boton-carrito1{
+    background-color: purple;
+  
+    font-size: 1rem;
+    color: white;
+    width: 85%;
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    
 }
 
 main{
@@ -98,7 +121,7 @@ main{
 }
 
 .contenedor-productos{
-    display: grid;
+    display: flex;
     grid-template-columns: repeat(4, 1fr);
     gap: 1rem;
 }
@@ -151,6 +174,7 @@ main{
 
 .carrito-vacio,
 .carrito-comprado{
+    font-family: 'Montserrat', sans-serif;
     font-size: 2rem;
     color: white;
 }
@@ -162,6 +186,7 @@ main{
 }
 
 .carrito-producto{
+    font-family: 'Montserrat', sans-serif;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -182,6 +207,7 @@ main{
 }
 
 .carrito-producto-eliminar{
+    font-family: 'Montserrat', sans-serif;
     border: 0;
     background-color: transparent;
     color: red;
@@ -194,7 +220,7 @@ main{
 }
 
 .carrito-acciones-vaciar{
-   margin-top: 20px;
+    margin-top: 20px;
     border: 0;
     background-color: white;
     padding: 1rem;
@@ -209,6 +235,7 @@ main{
 }
 
 .carrito-acciones-total{
+    font-family: 'Montserrat', sans-serif;
     display: flex;
     margin-top: 20px;
     border: 0;
@@ -226,7 +253,7 @@ main{
     border: 0;
     background-color: purple;
     padding: 1rem;
-    color: gray;
+    color: white;
     text-transform: uppercase;
     cursor: pointer;
     border-top-right-radius: 1rem;

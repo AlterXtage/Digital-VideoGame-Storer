@@ -3,9 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Digital VideoGames</title>
+    <title>Digital VideoGames - Biblioteca</title>
     <link rel="stylesheet" href="css/biblioteca.css">
 </head>
+<style>/* Establecer el alto mínimo del body al 100vh para que ocupe al menos toda la pantalla */
+    html, body {
+        height: 100%;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    /* El main debe tomar el espacio disponible restante */
+    main {
+        flex: 1;
+    }
+    
+    /* Footer centrado al fondo */
+    footer {
+        text-align: center;
+        padding: 10px;
+        background-color: purple;
+        color: white;
+        position: relative;
+        bottom: 0;
+        width: 100%;
+    }
+    
+    footer button {
+        margin: 0 10px;
+        padding: 10px;
+        background-color: transparent;
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+    
+    footer button:hover {
+        background-color: #555;
+    }
+    
+    /* Opcional: Agregar estilo para el buscador y otros elementos si es necesario */
+    .search-bar input {
+        padding: 5px;
+        width: 200px;
+        margin-right: 10px;
+    }
+    </style>
 <body>
     <header>
         <div class="logo">
@@ -14,64 +58,91 @@
         <h1>Biblioteca</h1> 
         <nav>
             <ul>
-                <li><a href="tienda.html">tienda</a></li>
+                <li><a href="tienda.html">Tienda</a></li>
             </ul>
         </nav>
         <div class="search-bar">
-            <input type="text" placeholder="Buscar">
+            <input type="text" id="searchInput" placeholder="Buscar juegos..." oninput="searchGames()">
             <button>🔍</button>
         </div>
         <div class="user-cart">
             <div class="cart">
-                <a href="carrito.html">🛒</a>
+                <a href="carrito.html" id="cartLink">🛒</a>
             </div>
             <div class="user">
                 <a href="perfil.html">👤</a>
             </div>
         </div>
     </header>
+    
     <main>
-        <section class="featured-games">
-            <h2>Nuevos y Destacables</h2>
-            <div class="game-list">
-                <img src="img/juego.jpg" alt="Game 1">
-                <img src="img/juego.jpg" alt="Game 2">
-                <img src="img/juego.jpg" alt="Game 3">
-                <img src="img/juego.jpg" alt="Game 4">
-                <img src="img/juego.jpg" alt="Game 5">
-            </div>
-        </section>
-        <section class="recently-played">
-            <h2>JUGADOS RECIENTEMENTE</h2>
-            <div class="game-carousel">
-            
-                <div class="carousel-images">
-                    <div class="game">
-                        <img src="img/juego.jpg" alt="Game 1">
-                        <p>1 hora</p>
-                    </div>
-                    <div class="game">
-                        <img src="img/juego.jpg" alt="Game 2">
-                        <p>20 minutos</p>
-                    </div>
-                    <div class="game">
-                        <img src="img/juego.jpg" alt="Game 3">
-                        <p>125 horas</p>
-                    </div>
-                    <div class="game">
-                        <img src="img/juego.jpg" alt="Game 4">
-                        <p>3 horas</p>
-                    </div>
+        <!-- Sección de juegos adquiridos -->
+        <section class="acquired-games">
+            <h2>Juegos Adquiridos</h2>
+            <div class="game-list" id="gameList">
+                <div class="game-item">
+                    <img src="img/juego.jpg" alt="Juego 1">
+                    <p>Juego 1</p>
                 </div>
-               
+                <div class="game-item">
+                    <img src="img/juego.jpg" alt="Juego 2">
+                    <p>Juego 2</p>
+                </div>
+                <div class="game-item">
+                    <img src="img/juego.jpg" alt="Juego 3">
+                    <p>Juego 3</p>
+                </div>
+                <div class="game-item">
+                    <img src="img/juego.jpg" alt="Juego 4">
+                    <p>Juego 4</p>
+                </div>
+                <div class="game-item">
+                    <img src="img/juego.jpg" alt="Juego 5">
+                    <p>Juego 5</p>
+                </div>
             </div>
         </section>
     </main>
+
     <footer>
-        <a href="biblioteca.html">
-        <button>⟳</button></a>
-        <a href="juego.exe">
-        <button>▶</button></a>
+        <button onclick="reloadPage()">⟳</button>
+        <button onclick="playGame()">▶</button>
     </footer>
+
+    <script>
+        // Función para recargar la página
+        function reloadPage() {
+            location.reload();
+        }
+
+        // Función para simular la acción de jugar un juego
+        function playGame() {
+            alert("Juego en ejecución...");
+            // Aquí se integraría con el backend más tarde para ejecutar el juego
+        }
+
+        // Función para manejar la búsqueda de juegos adquiridos
+        function searchGames() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const games = document.querySelectorAll('.game-item');
+            
+            games.forEach(game => {
+                const gameName = game.querySelector('p').textContent.toLowerCase();
+                if (gameName.includes(searchTerm)) {
+                    game.style.display = 'block'; // Mostrar el juego si coincide
+                } else {
+                    game.style.display = 'none'; // Ocultar el juego si no coincide
+                }
+            });
+        }
+
+        // Función para agregar juegos al carrito
+        // Este es solo un ejemplo de la lógica básica. 
+        // En el futuro, se conectará con el sistema de carrito.
+        document.getElementById('cartLink').addEventListener('click', function() {
+            alert("Juego agregado al carrito.");
+            // Aquí se agregará la lógica para manejar el carrito de compras más tarde
+        });
+    </script>
 </body>
 </html>

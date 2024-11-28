@@ -3,8 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Digital VideoGames</title>
+    <title>Perfil - Digital VideoGames</title>
     <link rel="stylesheet" href="css/perfil.css">
+    <style>
+       /* Añadir a tu archivo CSS */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;  /* Asegura que el body ocupe toda la altura */
+        }
+
+        header, footer {
+            background: purple;
+            color: white;
+            text-align: center;
+            padding: 15px;
+        }
+
+        main {
+            flex-grow: 1;  /* Hace que el contenido principal ocupe el espacio disponible */
+        }
+
+        footer {
+            margin-top: auto; /* Esto empuja el footer al final */
+        }
+
+        header .logo img {
+            width: 100px;
+            height: 110px;
+            vertical-align: middle;
+        }
+        .perfil {
+            max-width: 900px;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        .perfil img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        .perfil h2, .perfil p {
+            text-align: center;
+        }
+        .form-group {
+            margin: 15px 0;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input, textarea, button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        button {
+            background: #28a745;
+            color: white;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        button:hover {
+            background: #218838;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -22,48 +95,63 @@
     </header>
     <main>
         <section class="perfil">
-            <div class="usuario">
-                <img src="imge/xbox.png" alt="Usuario">
-                <h2>Nombre</h2>
-                <p>Sobre el Usuario</p>
-            </div>
-            <div class="nivel">
-                <p>Nivel</p>
-                <div class="barra-nivel">
-                    <div class="progreso" style="width: 50%;"></div>
-                    <span>25</span>
+            <h2>Editar Perfil</h2>
+            <form id="editProfileForm">
+                <div class="form-group">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" placeholder="Escribe tu nombre" value="Nombre actual">
                 </div>
-            </div>
-            <div class="actividad-reciente">
-                <h3>Actividad Reciente</h3>
-                <div class="juegos">
-                    <div class="juego">
-                        <img src="img/juego.jpg" alt="Juego">
-                        <p>Logros: 20%</p>
-                    </div>
-                    <div class="juego">
-                        <img src="img/juego.jpg" alt="Juego">
-                        <p>Logros: 20%</p>
-                    </div>
-                    <div class="juego">
-                        <img src="img/juego.jpg" alt="Juego">
-                        <p>Logros: 20%</p>
-                    </div>
+                <div class="form-group">
+                    <label for="biografia">Biografía:</label>
+                    <textarea id="biografia" rows="4" placeholder="Escribe algo sobre ti">Biografía actual</textarea>
                 </div>
-            </div>
-            <div class="amigos">
-                <h3>En Línea</h3>
-                <ul>
-                    <li>Pepe</li>
-                    <li>Camilo</li>
-                    <li>Jaime</li>
-                    <li>Miguel</li>
-                </ul>
-            </div>
+                <div class="form-group">
+                    <label for="imagen">Foto de Perfil:</label>
+                    <input type="file" id="imagen">
+                </div>
+                <button type="button" id="guardarCambios">Guardar Cambios</button>
+            </form>
         </section>
     </main>
     <footer>
         <p>&copy; 2024 Digital Video Games</p>
     </footer>
+    <script>
+        document.getElementById('guardarCambios').addEventListener('click', () => {
+            const nombre = document.getElementById('nombre').value.trim();
+            const biografia = document.getElementById('biografia').value.trim();
+            const imagen = document.getElementById('imagen').files[0];
+
+            if (!nombre || !biografia) {
+                alert('Por favor, completa todos los campos.');
+                return;
+            }
+
+            const formData = new FormData();
+            formData.append('nombre', nombre);
+            formData.append('biografia', biografia);
+            if (imagen) {
+                formData.append('imagen', imagen);
+            }
+
+            // Simulación del envío al servidor
+            console.log('Datos enviados:', {
+                nombre,
+                biografia,
+                imagen: imagen ? imagen.name : 'No se seleccionó imagen'
+            });
+
+            alert('Cambios guardados con éxito.');
+
+            // Aquí se implementará el envío a un archivo PHP
+            // fetch('actualizar_perfil.php', {
+            //     method: 'POST',
+            //     body: formData
+            // })
+            // .then(response => response.text())
+            // .then(data => console.log(data))
+            // .catch(error => console.error('Error:', error));
+        });
+    </script>
 </body>
 </html>
